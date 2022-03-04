@@ -1,0 +1,38 @@
+div style="background-color: dodgerblue; text-align:center; margin-bottom:20px">
+    <h1 align ="center" style="margin-top: 0px; padding:20px; color: #fff; display:inline-block">Angular Component Communication</h1>
+    <span class="glyphicon glyphicon-plus-sign" style="float:right"></span>
+</div>
+<div class="container">
+    <app-student (onAdd)="addUser($event)" [formData]="user" ></app-student>
+    <div class="container">
+      <table class="table table-striped thead-light table-hover">
+        <caption>User Details</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of users; index as i">
+                <td> {{user.id}} </td>
+                <td> {{user.name}} </td>
+                <td> {{user.username}} </td>
+                <td> {{user.email}} </td>
+
+                <td> {{user.phone}} </td>
+                <td> {{user.website}} </td>
+                <td><span class="fa fa-edit" style = "color:blue" (click)="edittUser(user,i)"></span></td>
+                <td><span class="fa fa-trash" style = "color:red" (click)="removeEmp(i)"></span></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+</div>
